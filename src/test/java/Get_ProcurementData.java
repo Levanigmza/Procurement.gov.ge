@@ -27,6 +27,5 @@ public class Get_ProcurementData {
         steps.GetCurrentDate_Data();
         steps.Open_Record();
 
-
     }
 }

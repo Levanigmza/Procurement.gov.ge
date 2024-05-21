@@ -1,7 +1,6 @@
 package Utils;
 
 import com.microsoft.playwright.*;
-import com.microsoft.playwright.options.AriaRole;
 import org.testng.Assert;
 
 import static Steps.ProcurementGov_Steps.page;
@@ -38,11 +37,5 @@ public class Setup {
         browser.close();
     }
 
-    public static Browser getBrowser() {
-        return browser;
-    }
 
-    public static Page getPage() {
-        return page;
-    }
 }
