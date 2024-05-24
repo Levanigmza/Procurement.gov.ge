@@ -79,7 +79,7 @@ public class CsvListener{
         }
     }
 
-    public void writeResultToExcel(String purchaseType, String applicationId, String buyer, String purchaseCost, String classifierCodes, String additionalInfo , String Test) {
+    public void writeResultToExcel(String purchaseType, String applicationId, String buyer, String purchaseCost, String classifierCodes, String additionalInfo ) {
         Row row = sheet.createRow(rowNum++);
         row.createCell(0).setCellValue(purchaseType);
         row.createCell(1).setCellValue(applicationId);
@@ -87,7 +87,6 @@ public class CsvListener{
         row.createCell(3).setCellValue(purchaseCost);
         row.createCell(4).setCellValue(classifierCodes);
         row.createCell(5).setCellValue(additionalInfo);
-        row.createCell(6).setCellValue(Test);
 
     }
 

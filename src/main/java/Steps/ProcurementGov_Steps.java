@@ -46,37 +46,30 @@ public class ProcurementGov_Steps {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(PageCount);
 
-        // Check if a match is found
         if (matcher.find()) {
-            // Extract the matched group
             String numberAfterSlash = matcher.group(1);
             PageOfCount = Integer.parseInt(numberAfterSlash);
         } else {
             System.out.println("No match found for the regex pattern.");
-            return; // Exit the method if no match is found
+            return;
         }
 
         try {
             for (int j = 0; j < PageOfCount - 1; j++) {
-
                 for (int i = 1; i <= 4; i++) {
-
                     Locator element = page.locator("xpath=/html/body/div[2]/div[3]/div[2]/table/tbody/tr[" + i + "]");
                     if (element.isVisible()) {
                         element.click();
                         page.waitForTimeout(500);
                         Parse_RecordData();
 
-                        csvListener.writeResultToExcel(Purchase_Type, Application_Id, Buyer, Purchase_Cost, Purchase_Category, Additional_Info , "test");
+                        csvListener.writeResultToExcel(Purchase_Type, Application_Id, Buyer, Purchase_Cost, Purchase_Category, Additional_Info );
                         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("უკან")).click();
                     } else {
                         System.out.println("Element at index " + i + " is not visible.");
                     }
                 }
                 page.locator("#btn_next").click();
-
-
-
             }
             csvListener.onFinish();
         } catch (Exception exception) {
@@ -98,7 +91,7 @@ public class ProcurementGov_Steps {
         String xPath2 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[2]/td[2]";
         String xPath3 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[4]/td[2]";
         String xPath4 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[8]/td[2]";
-        String xPath5 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[11]/td[2]";
+        String xPath5 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[10]/td[2]";
         String xPath6 = "/html/body/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[1]/table/tbody/tr[15]/td[1]";
 
 
